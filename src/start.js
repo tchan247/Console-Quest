@@ -2,6 +2,8 @@ window.quest = {};
 
 quest.user = function() {
 	var name;
+	var score;
+	var settings = {};
 
 	return {
 		setName : function(str) {
@@ -9,8 +11,11 @@ quest.user = function() {
 			return this;
 		},
 
-		getName : function() {
-			return name;
+		getInfo : function() {
+			return {
+				this.name : name,
+				this.score : score
+			}
 		}
 	}
 }()
@@ -30,7 +35,17 @@ quest.start = function() {
 
 	console.log("Hello " + user.getName());
 
+	// user settings pseudocode
+	function settings = {
 
+		// difficulty
+
+		// topic
+	}
+	settings();
+
+	// start adventure
+	quest.adventure();
 }
 
 window.onload = quest.start;
