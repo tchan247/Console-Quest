@@ -41,12 +41,10 @@ quest.test = {
 
 		return false
 	},
-	// generate random test case
-	generateCase : function (n, fn) {
-		var inp = Math.random * n;
-		var ans = fn(inp)
-
-		return [inp, ans];
+	// generate random test case values including negative numbers
+	
+	generateValue : function (min, max) {
+		return (Math.random() * (max - min)) + min;
 	}
 
 }
