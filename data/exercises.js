@@ -1,12 +1,28 @@
 quest.exercises = {
 	easy : {
 		0 : { 
-			text : "Create a function named addTwo that adds two numbers:",
-			generateCases : false,
+			text : "Create a function named addTwo that adds two numbers and returns the sum:",
+			generateCases : {
+				bool:true,
+				times:10,
+				changeBy: 0
+			},
 			// sets of arguments
-			cases : {0 : [1,4], 1 : [3,5], [-3, 6], [-5, -3], [50, -99]},
-			test : quest.test.asserts(/* user input */, function()/* .apply(this, cases[0]) */)
-			}
+			cases : [test.generateValue(-100, 100),test.generateValue(-100, 100)],
+			test : quest.test.asserts(/* custom scope. */addTwo, function().apply(this, cases[key]))
+		},
+
+		1: {
+			text : "Create a function named reverse that returns a reversed version of a string input",
+			generateCases : {
+				bool:false,
+				times:0,
+				changeBy: 0
+			},
+			// sets of arguments
+			cases : [],
+			test : quest.test.asserts(/* custom scope. */reverse, function().apply(this, cases[key]))
+		}
 	},
 	medium : {
 
