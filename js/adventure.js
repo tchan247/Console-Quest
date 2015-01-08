@@ -1,5 +1,10 @@
-quest.adventure = function() {
-	var key;
+quest.adventure = function(settings) {
+	var key,
+		excercises = quest.excercises,
+		excerciseCount = Object.Keys(excercises[settings.difficulty]).length;
+		excercise = null,
+		user  = quest.user;
+
 
 	// program interval
 	if(typeof programLoop !== "undefined") clearInterval(programLoop);
@@ -13,6 +18,10 @@ quest.adventure = function() {
 			key = undefined;
 		}
 		
+		// get random excercise
+		if(excercise === null) {
+			excercise = excercises[settings.difficulty][Math.floor(Math.random() * excerciseCount)];
+		}
 
 	}
 
@@ -70,3 +79,5 @@ quest.keyTable = {
 
 	}
 }
+
+
