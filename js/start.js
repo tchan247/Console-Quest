@@ -35,15 +35,27 @@ quest.start = function() {
 
 	console.log("Hello " + user.getName());
 
-	// user settings pseudocode
+	// select user settings
 	var settings = function() {
+		var difficulty,
+			topic = "default",
+			easy = function(){difficulty = "easy"},
+			medium = function(){difficulty = "medium"},
+			hard = function(){difficulty = "hard"},
+			;
 
-		// difficulty
-		
-		// topic
+		// set difficulty setting
+		if(difficulty === undefined) {
+
+			// set interval loop for user response ***
+			
+		}
 
 		// return object containing all settings
-		return {};
+		return {
+			this.difficulty : difficulty,
+			this.topic : topic
+		};
 	}
 	settings();
 
