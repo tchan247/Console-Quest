@@ -2,15 +2,16 @@ quest.adventure = function(settings) {
 	var key,
 		excercises = quest.excercises,
 		excerciseCount = Object.Keys(excercises[settings.difficulty]).length;
-		excercise = null,
+		excercise = null,	// current excercise
+		errors = 0,
 		user  = quest.user;
 
 
-	// program interval
+	// program loop interval
 	if(typeof programLoop !== "undefined") clearInterval(programLoop);
 	programLoop = setInterval(runAdventure, 25);
 
-	// program loop
+	// Main program loop
 	function runAdventure() {
 
 		if(key !== undefined) {
@@ -18,9 +19,22 @@ quest.adventure = function(settings) {
 			key = undefined;
 		}
 		
-		// get random excercise
+		// get new random excercise
 		if(excercise === null) {
 			excercise = excercises[settings.difficulty][Math.floor(Math.random() * excerciseCount)];
+		}
+
+		// if excercise passed
+		if (excercise.test) {	
+			excercise = null;
+		} else if (!excercise.test) {
+			errors++;
+			// try again
+		}
+
+		if(errors > 2) {
+			// next problem
+			excercise = null;
 		}
 
 	}
@@ -79,5 +93,7 @@ quest.keyTable = {
 
 	}
 }
+
+
 
 
